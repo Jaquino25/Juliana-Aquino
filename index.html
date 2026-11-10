@@ -1,1 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juliana Aquino Francisco</title>
+  <meta name="description" content="Mathematics student at Binghamton University working across data, UX design, and operations.">
+  <style>
+    :root {
+      --bg: #fdfcfa;
+      --text: #1e1c1d;
+      --muted: #6a6567;
+      --line: #e6e1e2;
+      --accent: #a8324f;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161415;
+        --text: #f1eced;
+        --muted: #a39b9e;
+        --line: #302b2d;
+        --accent: #ee8aa3;
+      }
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      min-height: 100vh;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* Sidebar */
+    aside {
+      position: sticky; top: 0; align-self: start;
+      height: 100vh; padding: 40px 28px;
+      border-right: 1px solid var(--line);
+      overflow-y: auto;
+    }
+    .mark {
+      display: block; font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem; font-weight: 700; color: var(--text);
+      line-height: 1.2; margin-bottom: 36px;
+    }
+    .mark:hover { text-decoration: none; }
+    aside h4 {
+      font-size: 0.8rem; font-weight: 600; color: var(--muted);
+      margin: 22px 0 6px;
+    }
+    aside ul { list-style: none; }
+    aside li a { display: block; padding: 3px 0; color: var(--text); font-size: 0.97rem; }
+    aside li a:hover { color: var(--accent); text-decoration: none; }
+
+    /* Main */
+    main { padding: 72px 56px 40px; max-width: 880px; }
+    .intro h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.1; letter-spacing: -0.02em;
+    }
+    .intro .sub { font-style: italic; color: var(--muted); margin: 6px 0 24px; font-size: 1.1rem; }
+    .intro p { max-width: 36em; margin-bottom: 16px; }
+
+    section { padding-top: 64px; }
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem; letter-spacing: -0.01em; margin-bottom: 8px;
+    }
+    .lede { color: var(--muted); margin-bottom: 28px; max-width: 36em; }
+
+    /* Pillars */
+    .pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 32px; margin-top: 20px;
+    }
+    .pillars h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .pillars p { color: var(--muted); font-size: 0.95rem; margin-bottom: 10px;
