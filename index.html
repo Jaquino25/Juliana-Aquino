@@ -1,128 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Juliana Aquino Francisco</title>
-  <meta name="description" content="Mathematics student at Binghamton University working across data, UX design, and operations.">
-  <style>
-    :root {
-      --bg: #fdfcfa;
-      --text: #1e1c1d;
-      --muted: #6a6567;
-      --line: #e6e1e2;
-      --accent: #a8324f;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #161415;
-        --text: #f1eced;
-        --muted: #a39b9e;
-        --line: #302b2d;
-        --accent: #ee8aa3;
-      }
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juliana Aquino Francisco</title>
+<meta name="description" content="Mathematics senior at Binghamton University working across data, UX design, and operations.">
+<meta name="theme-color" content="#b02a58">
+<meta property="og:title" content="Juliana Aquino Francisco">
+<meta property="og:description" content="Mathematics senior at Binghamton University working across data, UX design, and operations.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Juliana Aquino Francisco","affiliation":{"@type":"CollegeOrUniversity","name":"Binghamton University"},"jobTitle":"Outreach and Counseling Associate","sameAs":["https://www.linkedin.com/in/jaquino25"]}
+</script>
+<style>
+:root {
+  --bg:#fff8f6; --side:#fdeef0; --surface:#ffffff; --text:#261c24; --muted:#6f5f6b; --line:#efd9de;
+  --accent:#b02a58; --accent2:#7a3b9e; --accent-ink:#ffffff;
+  --data:#0b7a8c; --data-bg:#dff3f5; --ux:#b02a58; --ux-bg:#fbdde6; --ops:#955300; --ops-bg:#fdecc8;
+  --serif: Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#151216; --side:#1b161d; --surface:#211b22; --text:#f4eef2; --muted:#b0a3ad; --line:#35293a;
+    --accent:#ff8fb0; --accent2:#c79bf0; --accent-ink:#151216;
+    --data:#5fd3dc; --data-bg:rgba(95,211,220,.14); --ux:#ff8fb0; --ux-bg:rgba(255,143,176,.14); --ops:#ffc15a; --ops-bg:rgba(255,193,90,.14);
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#151216; --side:#1b161d; --surface:#211b22; --text:#f4eef2; --muted:#b0a3ad; --line:#35293a;
+    --accent:#ff8fb0; --accent2:#c79bf0; --accent-ink:#151216;
+    --data:#5fd3dc; --data-bg:rgba(95,211,220,.14); --ux:#ff8fb0; --ux-bg:rgba(255,143,176,.14); --ops:#ffc15a; --ops-bg:rgba(255,193,90,.14);
+}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      min-height: 100vh;
-    }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body {
+  font-family: var(--sans); background: var(--bg); color: var(--text);
+  line-height: 1.65; display: grid; grid-template-columns: 230px 1fr; min-height: 100vh;
+  transition: background .25s, color .25s;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+button { font: inherit; color: inherit; cursor: pointer; background: none; border: 0; }
 
-    /* Sidebar */
-    aside {
-      position: sticky; top: 0; align-self: start;
-      height: 100vh; padding: 40px 28px;
-      border-right: 1px solid var(--line);
-      overflow-y: auto;
-    }
-    .mark {
-      display: block; font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.35rem; font-weight: 700; color: var(--text);
-      line-height: 1.2; margin-bottom: 36px;
-    }
-    .mark:hover { text-decoration: none; }
-    aside h4 {
-      font-size: 0.8rem; font-weight: 600; color: var(--muted);
-      margin: 22px 0 6px;
-    }
-    aside ul { list-style: none; }
-    aside li a { display: block; padding: 3px 0; color: var(--text); font-size: 0.97rem; }
-    aside li a:hover { color: var(--accent); text-decoration: none; }
+.skip { position: absolute; left: -999px; top: 8px; background: var(--accent); color: var(--accent-ink); padding: 8px 14px; border-radius: 6px; z-index: 10; }
+.skip:focus { left: 8px; }
 
-    /* Main */
-    main { padding: 72px 56px 40px; max-width: 880px; }
-    .intro h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.2rem, 5vw, 3.2rem);
-      line-height: 1.1; letter-spacing: -0.02em;
-    }
-    .intro .sub { font-style: italic; color: var(--muted); margin: 6px 0 24px; font-size: 1.1rem; }
-    .intro p { max-width: 36em; margin-bottom: 16px; }
-
-    section { padding-top: 64px; }
-    h2 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.7rem; letter-spacing: -0.01em; margin-bottom: 8px;
-    }
-    .lede { color: var(--muted); margin-bottom: 28px; max-width: 36em; }
-
-    /* Pillars */
-    .pillars {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; margin-top: 20px;
-    }
-    .pillars h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .pillars p { color: var(--muted); font-size: 0.95rem; margin-bottom: 10px; }
-  </style>
-</head>
-<body>
-
-  <aside>
-    <a href="#" class="mark">Juliana Aquino</a>
-    <h4>NAVIGATION</h4>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </aside>
-
-  <main>
-    <section class="intro" id="about">
-      <h1>Juliana Aquino Francisco</h1>
-      <p class="sub">Mathematics student at Binghamton University</p>
-      <p>Working across data, UX design, and operations to build intuitive, impact-driven digital experiences.</p>
-    </section>
-
-    <section id="work">
-      <h2>Pillars</h2>
-      <p class="lede">Overview of core competencies and focal areas.</p>
-      <div class="pillars">
-        <div>
-          <h3>Data</h3>
-          <p>Analyzing complex datasets to drive meaningful strategies.</p>
-        </div>
-        <div>
-          <h3>UX Design</h3>
-          <p>Crafting accessible, human-centered interfaces.</p>
-        </div>
-        <div>
-          <h3>Operations</h3>
-          <p>Streamlining workflows and optimizing execution.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-</body>
-</html>
+/* Sidebar */
+aside {
+  position: sticky; top: 0; align-self: start; height: 100vh; padding: 40px 28px;
+  border-right: 1px solid var(--line); display: flex; flex-direction: column;
+}
+.mark { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--text); line-height: 1.2; margin-bottom: 36px; }
+.mark:hover { text-decoration: none; }
+nav ul { list-style: none; }
+nav a {
+  display: block; padding: 4px 0 4px 14px; margin-left: -14px; color: var(--muted);
+  border-left: 2px solid transparent; transition: color .15s, border-color .15s;
+}
+nav a:hover { color: var(--text); text-decoration: none; }
+nav a.active { color: var(--text); border-left-color: var(--accent); font-weight: 600; }
+.theme-toggle {
+  margin-top: auto; align-self: flex-start; padding: 6px 12px; font-size: .88rem;
+  border:
