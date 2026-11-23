@@ -64,4 +64,370 @@ nav a:hover { color: var(--text); text-decoration: none; }
 nav a.active { color: var(--text); border-left-color: var(--accent); font-weight: 600; }
 .theme-toggle {
   margin-top: auto; align-self: flex-start; padding: 6px 12px; font-size: .88rem;
-  border:
+  border: 1px solid var(--line); border-radius: 999px; color: var(--muted);
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+
+/* Main */
+main { padding: 72px 56px 48px; max-width: 900px; }
+section + section { padding-top: 72px; }
+h1, h2, h3 { font-family: var(--serif); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
+h2 { font-size: 1.7rem; letter-spacing: -0.01em; margin-bottom: 8px; }
+.sub { font-style: italic; color: var(--muted); margin: 6px 0 24px; font-size: 1.1rem; }
+.intro p:not(.sub) { max-width: 36em; margin-bottom: 16px; }
+.lede { color: var(--muted); margin-bottom: 28px; max-width: 36em; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+.btn {
+  display: inline-block; padding: 10px 20px; border-radius: 8px; font-weight: 600;
+  background: var(--accent); color: var(--accent-ink); transition: transform .15s;
+}
+.btn:hover { text-decoration: none; transform: translateY(-1px); }
+.btn.ghost { background: none; color: var(--text); border: 1px solid var(--line); }
+.btn.ghost:hover { border-color: var(--muted); }
+
+/* Pillars: interactive filters */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pillar {
+  text-align: left; padding: 20px; border: 1px solid var(--line); border-radius: 12px;
+  transition: border-color .2s, background .2s;
+}
+.pillar:hover { border-color: var(--muted); }
+.pillar[aria-pressed="true"] { border-color: var(--accent); background: var(--surface); }
+.pillar h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.pillar p { color: var(--muted); font-size: .95rem; }
+.hint { color: var(--muted); font-size: .9rem; margin: 14px 0 28px; min-height: 1.5em; }
+
+/* Projects */
+.projects { display: grid; gap: 0; }
+.project { padding: 22px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 4px 24px; }
+.project:last-child { border-bottom: 1px solid var(--line); }
+.project[hidden] { display: none; }
+.project h3 { font-size: 1.2rem; }
+.project p { color: var(--muted); grid-column: 1; max-width: 38em; }
+.tags { grid-column: 1; display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; list-style: none; }
+.tags li { font-size: .82rem; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 1px 10px; }
+.project .links { grid-row: 1; grid-column: 2; font-size: .92rem; white-space: nowrap; }
+
+/* Experience */
+.timeline { list-style: none; }
+.timeline li { display: grid; grid-template-columns: 170px 1fr; gap: 24px; padding: 16px 0; border-top: 1px solid var(--line); }
+.when { color: var(--muted); font-size: .92rem; }
+.timeline h3 { font-size: 1.05rem; }
+.timeline p { color: var(--muted); font-size: .95rem; }
+
+/* Skills */
+.skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.skills h3 { font-size: 1rem; margin-bottom: 6px; }
+.skills ul { list-style: none; color: var(--muted); font-size: .95rem; }
+
+/* Contact */
+.contact-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 16px; }
+.email { font-family: var(--serif); font-size: 1.3rem; color: var(--text); }
+.status { font-size: .9rem; color: var(--muted); min-height: 1.4em; }
+footer { margin-top: 72px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+
+/* Color layer */
+aside { background: var(--side); }
+.mark { display: flex; align-items: center; gap: 10px; }
+.mark::before { content: ""; width: 14px; height: 14px; border-radius: 4px 50% 4px 50%; background: linear-gradient(135deg, var(--data), var(--accent), var(--ops)); flex: none; }
+nav a.active { color: var(--accent); }
+.intro {
+  padding: 44px 40px; border-radius: 24px; border: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 95% 0%, var(--ux-bg), transparent 55%),
+    radial-gradient(circle at 0% 100%, var(--data-bg), transparent 55%),
+    radial-gradient(circle at 100% 100%, var(--ops-bg), transparent 50%),
+    var(--surface);
+}
+.intro h1::after { content: ""; display: block; width: 140px; height: 6px; border-radius: 3px; margin-top: 18px; background: linear-gradient(90deg, var(--data), var(--accent), var(--ops)); }
+h2::after { content: ""; display: block; width: 44px; height: 4px; border-radius: 2px; margin-top: 8px; background: var(--accent); }
+.lede { margin-top: 14px; }
+.btn { background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 4px 14px color-mix(in srgb, var(--accent) 35%, transparent); }
+.btn.ghost { background: var(--surface); color: var(--text); box-shadow: none; }
+.btn.ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+[data-filter="data"], [data-cat^="data"], .skills > div:nth-child(1) { --c: var(--data); --cbg: var(--data-bg); }
+[data-filter="ux"], [data-cat^="ux"], .skills > div:nth-child(2) { --c: var(--ux); --cbg: var(--ux-bg); }
+[data-filter="ops"], [data-cat^="ops"], .skills > div:nth-child(3) { --c: var(--ops); --cbg: var(--ops-bg); }
+.pillar { background: var(--surface); border-top: 5px solid var(--c); }
+.pillar h3 { color: var(--c); }
+.pillar:hover { border-color: var(--c); }
+.pillar[aria-pressed="true"] { background: var(--cbg); border-color: var(--c); box-shadow: 0 6px 18px color-mix(in srgb, var(--c) 25%, transparent); }
+.project { border-top: 0; border-left: 5px solid var(--c); padding: 20px 20px; margin-bottom: 14px; background: var(--surface); border-radius: 0 14px 14px 0; }
+.project:last-child { border-bottom: 0; }
+.project h3 { color: var(--c); }
+.tags li { background: var(--cbg); color: var(--c); border-color: transparent; font-weight: 600; }
+.timeline li { border-top-color: var(--accent); border-top-style: dotted; }
+.when { color: var(--accent2); font-weight: 600; }
+.skills > div { background: var(--surface); border: 1px solid var(--line); border-top: 5px solid var(--c); border-radius: 12px; padding: 18px; }
+.skills h3 { color: var(--c); }
+.skills li::marker { color: var(--c); }
+.skills ul { list-style: disc inside; }
+.email { color: var(--accent); }
+footer { border-top: 4px solid transparent; border-image: linear-gradient(90deg, var(--data), var(--accent), var(--ops)) 1; }
+
+.intro { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; }
+.portrait {
+  position: relative; width: 200px; height: 200px; border-radius: 50%; overflow: hidden;
+  display: grid; place-items: center; color: #fff; font-family: var(--serif); font-size: 3.4rem;
+  background: linear-gradient(135deg, var(--data), var(--accent), var(--ops));
+  border: 5px solid var(--surface); box-shadow: 0 0 0 4px var(--accent), 0 14px 32px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* Responsive */
+@media (max-width: 860px) {
+  body { grid-template-columns: 1fr; }
+  aside {
+    position: sticky; top: 0; z-index: 5; height: auto; flex-direction: row; align-items: center;
+    gap: 16px; padding: 12px 20px; border-right: 0; border-bottom: 1px solid var(--line);
+    background: var(--side); overflow-x: auto;
+  }
+  .mark { margin: 0; white-space: nowrap; font-size: 1.1rem; }
+  nav ul { display: flex; gap: 16px; }
+  nav a { border-left: 0; padding: 2px 0; margin: 0; border-bottom: 2px solid transparent; }
+  nav a.active { border-bottom-color: var(--accent); }
+  .theme-toggle { margin: 0 0 0 auto; white-space: nowrap; }
+  main { padding: 32px 20px 32px; }
+  .intro { padding: 28px 22px; grid-template-columns: 1fr; gap: 24px; }
+  .portrait { order: -1; width: 140px; height: 140px; font-size: 2.4rem; }
+  .pillars, .skills { grid-template-columns: 1fr; }
+  .timeline li { grid-template-columns: 1fr; gap: 2px; }
+  .project { grid-template-columns: 1fr; }
+  .project .links { grid-row: auto; grid-column: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+@media print {
+  aside, .actions, .theme-toggle, .skip { display: none; }
+  body { display: block; }
+  main { padding: 0; max-width: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<aside>
+  <a href="#about" class="mark">Juliana Aquino</a>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="theme-toggle" id="theme" type="button" aria-label="Switch color theme">Theme</button>
+</aside>
+
+<main id="main">
+  <section class="intro" id="about">
+    <div class="intro-text">
+      <h1>Juliana Aquino Francisco</h1>
+      <p class="sub">Mathematics senior at Binghamton University</p>
+      <p>I'm pursuing a B.A. in Mathematics with minors in Digital and Data Studies and Latin American and Caribbean Area Studies. I'm looking for roles where data, technology, and human-centered problem-solving meet, especially data science, financial analytics, and UX design.</p>
+      <p>Right now I'm an Outreach and Counseling Associate at Harpur Edge, Harpur College's career development office.</p>
+      <div class="actions">
+        <a class="btn" href="#work">See my work</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <span aria-hidden="true">JA</span>
+      <img src="juliana.jpg" alt="Portrait of Juliana Aquino Francisco" width="200" height="200" onerror="this.remove()">
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Work</h2>
+    <p class="lede">Three areas I focus on. Select one to filter the highlights below.</p>
+    <div class="pillars" role="group" aria-label="Filter highlights by focus area">
+      <button class="pillar" type="button" data-filter="data" aria-pressed="false">
+        <h3>Data</h3><p>Analyzing complex datasets to drive meaningful strategies.</p>
+      </button>
+      <button class="pillar" type="button" data-filter="ux" aria-pressed="false">
+        <h3>UX Design</h3><p>Crafting accessible, human-centered interfaces.</p>
+      </button>
+      <button class="pillar" type="button" data-filter="ops" aria-pressed="false">
+        <h3>Operations</h3><p>Streamlining workflows and optimizing execution.</p>
+      </button>
+    </div>
+    <p class="hint" id="hint" aria-live="polite">Showing all highlights.</p>
+
+    <div class="projects">
+      <article class="project" data-cat="ops data">
+        <h3>Harpur Edge outreach and events</h3>
+        <p>First point of contact for students, alumni, faculty, and staff. I coordinate panels and networking events, track attendance and event data in G-Suite and B-Engaged, and maintain the mathematics career resources drive.</p>
+        <ul class="tags"><li>Event coordination</li><li>G-Suite</li><li>B-Engaged</li><li>Student support</li></ul>
+      </article>
+      <article class="project" data-cat="ux">
+        <h3>UX Lunch &amp; Learn</h3>
+        <p>Student staff for a Harpur Edge and Digital and Data Studies event where a UX research lead from Capital One talked with students about breaking into the field through mentorship and networking.</p>
+        <ul class="tags"><li>UX</li><li>Event planning</li><li>Networking</li></ul>
+      </article>
+      <article class="project" data-cat="ops">
+        <h3>El Polvorín dance competition</h3>
+        <p>As Secretary of Quimbamba Latin Dance Team, I helped plan our annual intercollegiate competition: building budgets and schedules and doing outreach to participating schools and performance groups.</p>
+        <ul class="tags"><li>Budgeting</li><li>Logistics</li><li>Partnerships</li></ul>
+      </article>
+      <article class="project" data-cat="data">
+        <h3>Mathematics and Digital and Data Studies</h3>
+        <p>Coursework in mathematics, Python, and research methods, building toward analytics roles. Replace this card with a specific class or data project when you have one to show.</p>
+        <ul class="tags"><li>Python</li><li>Research</li><li>Analytics</li></ul>
+      </article>
+      <article class="project" data-cat="ops">
+        <h3>Goldman Sachs Operations Job Simulation</h3>
+        <p>Completed a virtual operations simulation through Forage in September 2026, practicing cross-functional teamwork and risk management.</p>
+        <ul class="tags"><li>Operations</li><li>Risk management</li><li>Forage</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p class="lede">Where I have studied, worked, and led.</p>
+    <ul class="timeline">
+      <li>
+        <span class="when">Aug 2026 – present</span>
+        <div><h3>Outreach and Counseling Associate, Harpur Edge</h3><p>Front desk lead contact, referrals to career resources, panels and networking events, and the mathematics career resources drive.</p></div>
+      </li>
+      <li>
+        <span class="when">Jan – May 2026</span>
+        <div><h3>Outreach and Counseling Intern, Harpur Edge</h3><p>Supported student professional development, ran events like Lunch &amp; Learns, and kept weekly opportunity resources up to date.</p></div>
+      </li>
+      <li>
+        <span class="when">Sep 2026</span>
+        <div><h3>Operations Job Simulation, Goldman Sachs (Forage)</h3><p>Virtual job simulation covering operations, risk management, and cross-functional teamwork.</p></div>
+      </li>
+      <li>
+        <span class="when">Apr 2025 – May 2026</span>
+        <div><h3>Secretary and Musical Engineer, Quimbamba Latin Dance Team</h3><p>Ran Executive Board communication, space bookings, attendance, and event logistics. Mixed and edited music for team performances.</p></div>
+      </li>
+      <li>
+        <span class="when">Aug 2024 – Jan 2026</span>
+        <div><h3>Education Coordinator, Dominican Student Association</h3><p>Managed general body events teaching the Binghamton community about Dominican culture and history.</p></div>
+      </li>
+      <li>
+        <span class="when">Jan 2023 – Aug 2026</span>
+        <div><h3>Lifeguard, Elite Amenity Management</h3><p>Monitored pools, administered first aid, enforced safety protocols, and taught private and small-group swim lessons.</p></div>
+      </li>
+      <li>
+        <span class="when">2023 – 2027</span>
+        <div><h3>Binghamton University</h3><p>B.A. in Mathematics. Minors in Digital and Data Studies and Latin American and Caribbean Area Studies.</p></div>
+      </li>
+      <li>
+        <span class="when">2019 – 2023</span>
+        <div><h3>University Prep Public Schools</h3><p>High school.</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p class="lede">Tools and methods I use most.</p>
+    <div class="skills">
+      <div><h3>Data</h3><ul><li>Python</li><li>Research</li><li>Analytics</li><li>Event data tracking</li></ul></div>
+      <div><h3>UX Design</h3><ul><li>Human-centered problem-solving</li><li>Public speaking</li><li>Interviewing</li><li>Networking</li></ul></div>
+      <div><h3>Operations</h3><ul><li>Front office operations</li><li>Risk management</li><li>Cross-functional teamwork</li><li>Event logistics</li></ul></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p class="lede">Open to data science, financial analytics, and UX opportunities. Email or LinkedIn both work.</p>
+    <div class="contact-row">
+      <a class="email" href="mailto:you@binghamton.edu" id="email">you@binghamton.edu</a>
+      <button class="btn ghost" type="button" id="copy">Copy email</button>
+    </div>
+    <p class="status" id="status" role="status"></p>
+    <div class="actions">
+      <a class="btn" href="https://www.linkedin.com/in/jaquino25" rel="noopener">Connect on LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>© <span id="year">2026</span> Juliana Aquino Francisco</footer>
+</main>
+
+<script>
+(function () {
+  var root = document.documentElement;
+
+  /* Theme: remember choice, fall back to system setting */
+  var themeBtn = document.getElementById('theme');
+  function systemDark() { return window.matchMedia('(prefers-color-scheme: dark)').matches; }
+  function current() { return root.getAttribute('data-theme') || (systemDark() ? 'dark' : 'light'); }
+  function label() { themeBtn.textContent = current() === 'dark' ? 'Light mode' : 'Dark mode'; }
+  try {
+    var saved = localStorage.getItem('theme');
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+  } catch (e) {}
+  label();
+  themeBtn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    label();
+  });
+
+  /* Highlight the nav link for the section in view */
+  var links = document.querySelectorAll('nav a');
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (a) { a.classList.remove('active'); a.removeAttribute('aria-current'); });
+          var a = map[en.target.id];
+          if (a) { a.classList.add('active'); a.setAttribute('aria-current', 'true'); }
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  }
+
+  /* Pillars filter projects */
+  var pillars = document.querySelectorAll('.pillar');
+  var projects = document.querySelectorAll('.project');
+  var hint = document.getElementById('hint');
+  var names = { data: 'Data', ux: 'UX Design', ops: 'Operations' };
+  pillars.forEach(function (p) {
+    p.addEventListener('click', function () {
+      var on = p.getAttribute('aria-pressed') === 'true';
+      pillars.forEach(function (x) { x.setAttribute('aria-pressed', 'false'); });
+      var f = on ? null : p.dataset.filter;
+      if (f) p.setAttribute('aria-pressed', 'true');
+      var shown = 0;
+      projects.forEach(function (pr) {
+        var match = !f || pr.dataset.cat.split(' ').indexOf(f) > -1;
+        pr.hidden = !match;
+        if (match) shown++;
+      });
+      hint.textContent = f
+        ? 'Showing ' + shown + ' ' + names[f] + ' highlight' + (shown === 1 ? '' : 's') + '. Select it again to see all.'
+        : 'Showing all highlights.';
+    });
+  });
+
+  /* Copy email */
+  var status = document.getElementById('status');
+  document.getElementById('copy').addEventListener('click', function () {
+    var addr = document.getElementById('email').textContent;
+    var done = function (msg) { status.textContent = msg; setTimeout(function () { status.textContent = ''; }, 2500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(addr).then(function () { done('Email copied.'); }, function () { done('Copy failed. Select the address and copy it manually.'); });
+    } else {
+      done('Copy is not supported here. Select the address and copy it manually.');
+    }
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
